@@ -15,8 +15,9 @@ import plotly.express as px
 
 
 
-df_data = pd.read_csv("data/2019_nCoV_data.csv")
-df_data["Country"] = df_data["Country"].str.replace("Mainland China", "China")
+df_data = pd.read_csv("data/covid_19_data.csv")
+df_data["Country"] = df_data["Country/Region"].str.replace("Mainland China", "China")
+df_data["Date"] = df_data["ObservationDate"]
 df_all = df_data.copy()
 df_data = df_data[df_data["Date"] == max(df_data["Date"])]
 
